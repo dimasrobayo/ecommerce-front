@@ -1,0 +1,27 @@
+@import "../../../scss/index.scss";
+
+.comments {
+  max-height: calc(500px - 90px);
+  overflow-y: scroll;
+  overflow: hidden;
+
+  .comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: $font-dark;
+    background-color: $background-light;
+
+    img {
+      margin-right: 15px !important;
+    }
+
+    p {
+      margin: 0;
+
+      &:first-of-type {
+        font-weight: bolder;
+      }
+    }
+  }
+}
