@@ -8,12 +8,12 @@ import './DetailsProduct.scss';
 export default function DetailsProduct(props) {
     const {publication} = props;
     const dispatch = useDispatch();
-    const shoppingList = useSelector((state) => state.shopping);
+    const shoppingList = useSelector((state) => state.shopping.shopping);
 
     console.log(shoppingList)
  
     const getAddCart = (publication) => {
-        dispatch(shoppingAdd(shoppingList, publication));
+        dispatch(shoppingAdd(publication, shoppingList));
     }
     
     return (
