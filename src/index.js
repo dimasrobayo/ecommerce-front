@@ -5,9 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import store from './Store/store'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 

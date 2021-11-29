@@ -17,11 +17,20 @@
     }
 
     p {
-      margin: 0;
+      margin: 10;
 
       &:first-of-type {
         font-weight: bolder;
       }
     }
+  }
+
+  .buttonShopping {
+    position: absolute !important;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    text-align: center !important;
+    border-radius: 0px !important;
   }
 }

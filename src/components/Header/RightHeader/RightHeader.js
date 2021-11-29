@@ -13,8 +13,8 @@ export default function RightHeader() {
                     <Icon name='home' size='large' />
                 </Link>
 
-                <Link to="/wechat">
-                    <Icon name='wechat' size='large' />
+                <Link to="/shopping">
+                    <Icon name='shopping cart' size='large' />
                 </Link>
 
                 <Image src={ImageNoFound} avatar />
