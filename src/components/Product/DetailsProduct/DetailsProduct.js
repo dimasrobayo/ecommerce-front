@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { shoppingAdd } from '../../../Store/features/shopping/shoppingSlice';
 import { Button } from 'semantic-ui-react';
 import './DetailsProduct.scss';
+import { shoppingAmount } from '../../../Store/features/shopping/shoppingTotalSlice';
 
 export default function DetailsProduct(props) {
     const {publication} = props;
     const dispatch = useDispatch();
-    const shoppingList = useSelector((state) => state.shopping.shopping);
-
-    console.log(shoppingList)
  
     const getAddCart = (publication) => {
-        dispatch(shoppingAdd(publication, shoppingList));
+        dispatch(shoppingAdd(publication));  
+        dispatch(shoppingAmount(publication.precio));
+
+        localStorage.setItem('product', JSON.stringify(publication));
     }
     
     return (

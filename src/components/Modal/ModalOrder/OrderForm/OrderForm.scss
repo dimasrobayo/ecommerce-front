@@ -1,0 +1,13 @@
+@import "../../../../scss/index.scss";
+
+.order-form {
+  &__label {
+    font-size: 16;
+    font-weight: bold;
+    padding: 5px !important;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

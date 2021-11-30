@@ -1,5 +1,5 @@
-const BACKEND = 'https://18.231.149.170:8000/api/auth/';
+const BACKEND = 'http://192.168.60.127:8001/api/';
 
 export {
     BACKEND
-  }
+}

@@ -21,12 +21,7 @@ export default function Feed(props) {
             {map(products, (product, index) => (
                 <div className="cardProduct" key={index} onClick={() => openPublication(product)}>
                     <p className="cardTitle">
-                        {product.titulo.length <= 52 
-                            ? 
-                                product.titulo 
-                            : 
-                                'titulo' 
-                        }
+                        {product.titulo}
                     </p>
 
                     <Image 
