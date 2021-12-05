@@ -13,8 +13,6 @@ export default function DetailsProduct(props) {
     const getAddCart = (publication) => {
         dispatch(shoppingAdd(publication));  
         dispatch(shoppingAmount(publication.precio));
-
-        localStorage.setItem('product', JSON.stringify(publication));
     }
     
     return (

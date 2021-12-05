@@ -9,16 +9,18 @@ import { shoppingClearAmount } from '../../Store/features/shopping/shoppingTotal
 import ModalOrder from '../../components/Modal/ModalOrder';
 
 export default function Shopping() {
-    const shoppingTotal = useSelector((state) => state.shoppingAmount.value);
     const [showModal, setShowModal] = useState(false);
+    const dispatch = useDispatch();
     const shoppingList = useSelector((state) => state.shopping.shopping);
     const {shopping} = shoppingList;
-    const dispatch = useDispatch();
+    const productsStorage = JSON.parse(localStorage.getItem('product'));
+    const shoppingCart = productsStorage ? productsStorage.shopping : shoppingList;
+
+    const sumaPrecios = shoppingCart.reduce((prev, next) => parseFloat(prev) + parseFloat(next.precio), 0);
 
     const clearCart = () => {
         dispatch(shoppingRemove());
         dispatch(shoppingClearAmount());
-        localStorage.removeItem('product');
     }
 
     const openShopping = () => {
@@ -39,8 +41,7 @@ export default function Shopping() {
     return (
         <Fragment>
             <div className="listProducts">
-            {map(shoppingList, (product, index) => (
-
+            {map(shoppingCart, (product, index) => (
                 <div className="cardProduct" key={index}>
                     <p className="cardTitle">
                         {product.titulo}
@@ -55,7 +56,9 @@ export default function Shopping() {
                 </div>
             ))}
             </div>
-            <h4>Total a Pagar: <FormatNumber number={shoppingTotal} /></h4>
+            <h4>
+                Total a Pagar: <FormatNumber number={sumaPrecios} />
+            </h4>
             <Button primary onClick={clearCart}>Vaciar carrito</Button>
             <Button onClick={openShopping}>Validar Compra</Button>
             {showModal && (

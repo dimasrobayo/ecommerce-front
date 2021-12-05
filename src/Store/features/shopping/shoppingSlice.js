@@ -8,9 +8,11 @@ export const shoppingSlice = createSlice({
   reducers: {
     shoppingAdd: (state, action) => {
       state.shopping.push(action.payload)
+      localStorage.setItem('product', JSON.stringify(state));
     },
     shoppingRemove: (state) => {
-      state.shopping = []
+      state.shopping = [];
+      localStorage.removeItem('product');
     },
   },
 })
